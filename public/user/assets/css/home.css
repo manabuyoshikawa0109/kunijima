@@ -1,0 +1,140 @@
+#header .logo, .footer-info h3{
+    font-size: 18px !important;
+    line-height: 18px !important;
+}
+
+@media (max-width: 480px) {
+    #header .logo, .footer-info h3{
+        font-size: 15px !important;
+        line-height: 15px !important;
+    }
+}
+/*
+背景色を青色にする
+*/
+th,
+.back-to-top i,
+li.active,
+h2::after,
+.social-links a:hover{
+    background-color: #17a2b8 !important;
+}
+/*
+文字色をグレーにする
+*/
+td,
+.icon-box p,
+.nav-menu a:not(.text-info):not(.get-started-btn){
+    color: #6c757d !important;
+}
+/*
+ホバー時にテーブルのセルの背景が変わる
+*/
+td:hover {
+    background-color: #BCE4EA !important;
+}
+
+th, td{
+    text-align: center !important;
+}
+/*
+ホバー時にテーブル1列、1行の背景が変わる
+*/
+.row100:hover,
+.hov-column-ver1 {
+  background-color: #DDF1F4 !important;
+}
+
+/*
+ホバーされたヘッド部のセルの背景色が薄い青色に変わる
+*/
+.hov-column-head-ver1 {
+  background-color: #7AC9D6 !important;
+}
+
+.footer-top {
+    padding: 30px 0 20px 0 !important;
+}
+.footer-links li:first-child{
+    padding-top: 10px !important;
+}
+/*
+ホバー時の文字色と、アイコンを青色に変える
+*/
+li:hover a:not(.get-started-btn),
+li:hover i,
+.icon-box:hover a,
+.icon-box i,
+.icofont-navigation-menu,
+.icofont-close {
+  color: #17a2b8 !important;
+}
+.login-box{
+    margin: 20px auto !important;
+}
+.fa-users, .fa-users-cog{
+    color: #1b00ff;
+}
+
+.mobile-nav{
+    top: 0px !important;
+    right: -265px !important; /* サイドバーの横幅分画面からはみ出して右側に位置 */
+    bottom: 0px !important;
+    left: auto !important;
+    border-radius: 0px !important;
+    z-index: 998 !important;
+    padding: 60px 15px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.mobile-nav-active .mobile-nav{
+    right: 0 !important; /* サイドバーの右端が画面右端となるので表示される */
+    transition: 1.0s; /* ぬるっと表示(値がautoだと効かない) */
+}
+/*
+サイドバー表示時黒い背景を表示しない
+*/
+.mobile-nav-overly{
+    display: none !important;
+}
+
+.mobile-nav-toggle{
+    z-index: 999 !important;
+}
+
+/*
+ログインモーダルのアイコン padding調整
+*/
+@media (max-width: 660px){
+    .select-role .btn-group .btn {
+        padding-left: 45px !important;
+    }
+}
+
+.carousel-indicators{
+    margin-bottom: 1rem !important;
+}
+
+.login-box{
+    position: relative;
+}
+
+/*
+ログインモーダルの閉じるボタン
+*/
+.login-close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.back-to-top{
+    z-index: 997 !important;
+}
+
+@media (min-width: 992px){
+    .mobile-nav-active {
+        overflow: auto !important;
+    }
+}
