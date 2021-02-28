@@ -12,20 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('user.pages.home.top.show');
-});
+    return view('user.pages.guest.top.show');
+})->name('user.guest.top.show');
 
-// Auth::routes();
+Route::get('/login', function () {
+    return view('user.pages.guest.top.show');
+})->name('user.guest.top.login');
 
 // ログイン未
-Route::group(['middleware' => 'guest'], function()
+Route::group(['middleware' => 'guest:user'], function()
 {
-    Route::post('login', 'LoginController@login')->name('user.login');
+    Route::post('login', 'LoginController@login')->name('user.guest.login');
 });
 
 // ログイン済み
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth:user'], function() {
 
-    Route::get('top', 'TopController@index')->name('top');
+    Route::get('top', 'TopController@show')->name('user.auth.top.show');
+
+    // ログアウト
+    Route::get ('logout', 'LoginController@logout')->name('user.auth.logout');
 
 });
