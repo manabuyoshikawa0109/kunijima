@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'user',
         'passwords' => 'users',
     ],
 
@@ -35,10 +35,18 @@ return [
     |
     */
 
+    // ここで定義したものが例えばAuth::guard('user')の様に使用できる？
     'guards' => [
-        'web' => [
+        // 一般ユーザー用の認証
+        'user' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        // 管理者用の認証
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
 
         'api' => [
@@ -65,10 +73,16 @@ return [
     |
     */
 
+    // どのモデルを使用してログイン認証するのか
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
+        ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
         ],
 
         // 'users' => [
@@ -95,6 +109,13 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'admins' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
