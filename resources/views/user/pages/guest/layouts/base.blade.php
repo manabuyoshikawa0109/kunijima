@@ -54,11 +54,11 @@
 <body>
 
     {{-- ヘッダー --}}
-    @include('user.pages.home.common.header')
+    @include('user.pages.guest.common.header')
     {{-- コンテンツ毎に変わる内容を読み込み --}}
     @yield('content')
     {{-- フッター --}}
-    @include('user.pages.home.common.footer')
+    @include('user.pages.guest.common.footer')
 
     <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 

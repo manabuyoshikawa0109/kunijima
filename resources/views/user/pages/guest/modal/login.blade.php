@@ -17,7 +17,8 @@
                 <div class="login-title">
                     <h2 class="text-center text-primary">予約システムへログイン</h2>
                 </div>
-                <form action="#" method="post">
+                <form action="{{ route('user.guest.login') }}" method="post">
+                    @csrf
                     <div class="select-role">
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn active">
@@ -42,7 +43,7 @@
                             </div>
                         </div>
                         @error('email')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback d-block" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
@@ -55,7 +56,7 @@
                             </div>
                         </div>
                         @error('password')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback d-block" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
