@@ -47,3 +47,6 @@
 .sidebar-menu .submenu li>a:before {
     content: none !important;
 }
+.nav-active{
+    background-color: #354045;
+}

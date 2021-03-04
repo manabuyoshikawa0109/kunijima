@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/user/assets/css/home.css">
 
     <!-- fontawesome -->
-    <link rel="stylesheet" href="/user/plugins/fontawesome/css/all.css" >
+    <link rel="stylesheet" href="/common/plugins/fontawesome/css/all.css" >
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
