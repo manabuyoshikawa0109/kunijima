@@ -34,4 +34,24 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [];
+
+    /**
+    * フルネームを返す
+    *
+    * @return string
+    */
+    public function fullName()
+    {
+        return $this->last_name . $this->first_name;
+    }
+
+    /**
+    * フルネームカナを返す
+    *
+    * @return string
+    */
+    public function fullNameKana()
+    {
+        return $this->last_name_kana . $this->first_name_kana;
+    }
 }

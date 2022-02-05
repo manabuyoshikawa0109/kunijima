@@ -50,3 +50,50 @@
 .nav-active{
     background-color: #354045;
 }
+.fc-license-message{
+    display: none;
+}
+.page-header {
+    margin-bottom: 20px !important;
+}
+
+.detail-group {
+    border-top: 1px solid #dee2ed;
+}
+
+.detail-group > label {
+    background: #ecf0f4;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.detail-group > div {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.tagify{
+  width: 100%;
+  overflow: scroll; /* はみ出た子要素をどうするか（スクロールできるようにする） */
+  flex-wrap: nowrap !important; /* 横並びの要素を折り返すか（折り返さない） */
+}
+
+.tagify__tag-text, .tagify__input {
+	white-space: nowrap !important; /* 自動で折り返すか（折り返ししない） */
+}
+
+.white-space-nowrap {
+    white-space: nowrap !important;
+}
+
+.btn-primary {
+    background-color: #2C3E50 !important;
+    border-color: #2C3E50 !important;
+}
+
+.page-header {
+    padding: 15px !important;
+}

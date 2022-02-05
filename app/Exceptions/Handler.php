@@ -52,4 +52,19 @@ class Handler extends ExceptionHandler
     {
         return parent::render($request, $exception);
     }
+
+    // /**
+    //  * Get the view used to render HTTP exceptions.
+    //  *
+    //  * @param  \Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
+    //  * @return string
+    //  */
+    // protected function getHttpExceptionView(HttpExceptionInterface $e)
+    // {
+    //     if (request()->is('admin*')) {
+    //         return "admin.errors.{$e->getStatusCode()}";
+    //     } else {
+    //         return "user.errors.{$e->getStatusCode()}";
+    //     }
+    // }
 }

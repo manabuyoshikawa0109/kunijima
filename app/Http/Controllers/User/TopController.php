@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TopController extends Controller
 {
-    public function show()
+    public function show(Request $request)
     {
         return view('user.pages.auth.top.show');
     }
