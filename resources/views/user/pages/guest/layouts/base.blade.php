@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="/user/plugins/sailor/img/favicon.png" rel="icon">
-    <link href="/user/plugins/sailor/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="/favicon.ico" rel="icon">
+    <link href="{{ asset('user/assets/img/kunijima_outdoor.jpg') }}" rel="apple-touch-icon">
 
     <!-- CSS -->
     <link rel="stylesheet" href="/user/assets/css/home.css">
