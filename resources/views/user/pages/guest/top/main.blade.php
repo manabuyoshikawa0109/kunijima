@@ -16,35 +16,35 @@
                         <p>コートは密を避けるため、多人数での使用は避けてください。</p>
                     </div>
                 </div>
-                <div class="col-md-6 mt-4 mt-md-0">
+                <div class="col-md-6">
                     <div class="icon-box">
                         <i class="fas fa-head-side-mask"></i>
                         <h4><a href="#">マスク着用</a></h4>
                         <p>クラブハウス内は必ずマスク着用をお願いいたします。</p>
                     </div>
                 </div>
-                <div class="col-md-6 mt-4 mt-md-0">
+                <div class="col-md-6">
                     <div class="icon-box">
                         <i class="fas fa-person-booth"></i>
                         <h4><a href="#">更衣室の利用制限</a></h4>
                         <p>更衣室は使用人数を制限させていただいております。</p>
                     </div>
                 </div>
-                <div class="col-md-6 mt-4 mt-md-0">
+                <div class="col-md-6">
                     <div class="icon-box">
                         <i class="fas fa-smoking-ban"></i>
                         <h4><a href="#">全館禁煙</a></h4>
                         <p>全館禁煙となります。敷地内での喫煙はご遠慮ください。</p>
                     </div>
                 </div>
-                <div class="col-md-6 mt-4 mt-md-0">
+                <div class="col-md-6">
                     <div class="icon-box">
                         <i class="fas fa-trash-alt"></i>
                         <h4><a href="#">ごみ捨て禁止</a></h4>
                         <p>マスク等のごみはお持ち帰りください。敷地内への投機はご遠慮ください。</p>
                     </div>
                 </div>
-                <div class="col-md-6 mt-4 mt-md-0">
+                <div class="col-md-6">
                     <div class="icon-box">
                         <i class="fas fa-history"></i>
                         <h4><a href="#">滞在時間短縮のお願い</a></h4>

@@ -6,11 +6,11 @@
 
 @section('content')
 <div class="main-container">
-	<div class="pd-ltr-20">
+	<div class="p-sm-3 p-1">
 
 		@include('user.pages.auth.reservation.common.steps')
 
-		<div class="card-box pd-20 mb-30">
+		<div class="card-box p-sm-4 px-2 py-3 mb-4">
 			<div class="calendar-wrap">
 				<div id="calendar"></div>
 			</div>

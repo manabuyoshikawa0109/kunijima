@@ -53,9 +53,6 @@
 .fc-license-message{
     display: none;
 }
-.page-header {
-    margin-bottom: 20px !important;
-}
 
 .detail-group {
     border-top: 1px solid #dee2ed;
@@ -96,4 +93,12 @@
 
 .page-header {
     padding: 15px !important;
+    margin-bottom: 20px !important;
+}
+
+@media screen and (max-width: 767px) {
+    .page-header {
+        padding: 10px !important;
+        margin-bottom: 15px !important;
+    }
 }
