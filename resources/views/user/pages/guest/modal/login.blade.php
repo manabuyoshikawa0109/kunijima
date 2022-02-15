@@ -19,22 +19,6 @@
                 </div>
                 <form action="{{ route('user.guest.login') }}" method="post">
                     @csrf
-                    <div class="select-role">
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn active">
-                                <input type="radio" name="options" id="user">
-                                <div class="icon"><i class="fas fa-users fa-2x"></i></div>
-                                利用者として
-                                <span>ログイン</span>
-                            </label>
-                            <label class="btn">
-                                <input type="radio" name="options" id="admin">
-                                <div class="icon"><i class="fas fa-users-cog fa-2x"></i></i></div>
-                                管理者として
-                                <span>ログイン</span>
-                            </label>
-                        </div>
-                    </div>
                     <div class="form-group mb-4">
                         <div class="input-group custom m-0">
                             <input type="email" class="form-control form-control-lg" name="email" value="{{ old('email') }}" placeholder="kunijima@gmail.com">

@@ -138,3 +138,15 @@ li:hover i,
         overflow: auto !important;
     }
 }
+
+/*
+画面幅767pxまではこのCSSを読み込む
+*/
+@media screen and (max-width: 767px) {
+    section{
+        padding: 40px 0 !important;
+    }
+    .section-title {
+        padding-bottom: 20px !important;
+    }
+}

@@ -57,7 +57,7 @@
     </section><!-- End Services Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
+    <section id="portfolio" class="portfolio pt-0">
         <div class="container">
 
             <div class="section-title">
@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-12 col-sm-6">
                     <span class="text-muted small">テニス貸コート：1時間単位（砂入り人工芝及びハードコート）</span>
-                    <div class="table100 ver1 m-b-110">
+                    <div class="table100 ver1 mb-4">
                         <table class="mb-1" data-vertable="ver1">
                             <thead>
                                 <tr class="row100 head">
@@ -110,7 +110,7 @@
 
                 <div class="col-12 col-sm-6">
                     <span class="text-muted small">パデルコート：1時間単位（砂入り人工芝）</span>
-                    <div class="table100 ver1 m-b-110 padel">
+                    <div class="table100 ver1 padel mb-4">
                         <table data-vertable="ver1">
                             <thead>
                                 <tr class="row100 head">
@@ -148,7 +148,7 @@
             <div class="row">
                 <div class="col-12 col-sm-6">
                     <span class="text-muted small">貸コート年間契約（１週１回１時間）</span>
-                    <div class="table100 ver1 m-b-110">
+                    <div class="table100 ver1 mb-4">
                         <table class="mb-1" data-vertable="ver1">
                             <thead>
                                 <tr class="row100 head">
@@ -189,7 +189,7 @@
 
                 <div class="col-12 col-sm-6">
                     <span class="text-muted small">その他</span>
-                    <div class="table100 ver1 m-b-110">
+                    <div class="table100 ver1 mb-4">
                         <table class="mb-1" data-vertable="ver1">
                             <thead>
                                 <tr class="row100 head">
