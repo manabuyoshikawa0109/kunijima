@@ -45,7 +45,7 @@
                     <span class="user-icon">
                         <img src="/user/assets/img/no-user.jpg">
                     </span>
-                    <span class="user-name">{{ Auth::guard('user')->user()->last_name . Auth::guard('user')->user()->first_name }}</span>
+                    <span class="user-name">{{ $user->last_name . $user->first_name }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                     <a class="dropdown-item" href="#"><i class="dw dw-user1"></i>利用者情報変更</a>

@@ -174,6 +174,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // ブレードテンプレート用のサービスプロバイダー
+        App\Providers\DirectiveServiceProvider::class,
+        // グローバル変数用のサービスプロバイダー
+        App\Providers\VariableServiceProvider::class,
+
         Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
