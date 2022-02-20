@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth:user'], function() {
     // TODO: 予約状況の確認はFullCalendarのリストビュー状にしたい
     // https://fullcalendar.io/docs/list-view
 
+    Route::any ('sql/insert',  'SqlController@insert')->name('user.auth.sql.insert');
+
     // ログアウト
     Route::get ('logout', 'LoginController@logout')->name('user.auth.logout');
 
