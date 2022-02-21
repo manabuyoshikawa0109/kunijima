@@ -18,14 +18,14 @@
             <div class="progress">
                 <div class="progress-bar"></div>
             </div> <a class="bs-wizard-dot"></a>
-            <div class="bs-wizard-info text-center">時間帯選択</div>
+            <div class="bs-wizard-info text-center">時間選択</div>
         </div>
         <div class="col-3 bs-wizard-step @if($page->isConfirming()) active @elseif($page->isCompleted()) complete @else disabled @endif">
             <div class="text-center bs-wizard-stepnum">Step 3</div>
             <div class="progress">
                 <div class="progress-bar"></div>
             </div> <a class="bs-wizard-dot"></a>
-            <div class="bs-wizard-info text-center">予約内容確認</div>
+            <div class="bs-wizard-info text-center">予約確認</div>
         </div>
         <div class="col-3 bs-wizard-step @if($page->isCompleted()) active @else disabled @endif">
             <div class="text-center bs-wizard-stepnum">Step 4</div>

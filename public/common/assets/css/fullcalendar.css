@@ -23,8 +23,22 @@
     タイトルの日付の文字サイズ
     */
     .fc .fc-toolbar-title {
-        font-size: 1.55em;
+        font-size: 1.15em;
     }
+    /*
+    カレンダー上のボタンと文字サイズの調整
+    */
+    .fc-button{
+        padding: 0.3em 0.55em !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+/*
+タイトルの日付のpadding削除
+*/
+.fc .fc-toolbar-title {
+    padding: 0 !important;
 }
 
 /*
@@ -39,4 +53,11 @@ resource欄の文字を左右中央揃え
 */
 .fc-datagrid-cell-cushion{
     text-align: center;
+}
+
+/*
+ヘッダー部の時間を左右中央に表示
+*/
+.fc-timeline-slot-frame{
+    justify-content: center !important;
 }

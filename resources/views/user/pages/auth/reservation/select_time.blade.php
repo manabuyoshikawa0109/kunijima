@@ -59,7 +59,7 @@ $(function(){
 		refetchResourcesOnNavigate: false, // ※resourcesやeventsをAPIで取得する際に、表示されているカレンダーの開始日と終了日をパラメータで送る
 		customButtons: {
 			courtMapModalShowButton: {
-				text: '施設詳細',
+				text: '施設',
 				click: function() {
 					$('#courtMapModal').modal('show');
 				}
@@ -72,7 +72,7 @@ $(function(){
 			// }
 		},
 		headerToolbar: {
-			start: 'today', // カンマ区切り・・・ボタン隣接、スペース区切り・・・ボタン間にスペース
+			start: 'today,courtMapModalShowButton', // カンマ区切り・・・ボタン隣接、スペース区切り・・・ボタン間にスペース
 			center: 'title',
 			end: 'prev,next'
 		},
