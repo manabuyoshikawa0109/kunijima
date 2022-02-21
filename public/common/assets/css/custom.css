@@ -48,7 +48,7 @@
     content: none !important;
 }
 .nav-active{
-    background-color: #354045;
+    background-color: rgba(0,0,0,.4);
 }
 .fc-license-message{
     display: none;
