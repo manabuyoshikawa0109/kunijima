@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="col-sm-2 px-0 pr-sm-3">
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-0 mb-sm-3">
                             <label class="d-none d-sm-inline-block">&nbsp;</label>
                             <button type="submit" class="btn btn-sm btn-dark d-block"><span class="icon-copy ti-import mr-1"></span>作成</button>
                         </div>
