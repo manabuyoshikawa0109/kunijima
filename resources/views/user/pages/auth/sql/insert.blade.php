@@ -4,25 +4,26 @@
 <div class="main-container">
 	<div class="p-sm-3 p-1">
 		<div class="card-box p-sm-4 px-2 py-3 mb-4">
+			<h4 class="h4">ExcelからINSERT文を作成</h4>
             <form action="{{ route('user.auth.sql.insert') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
-                    <div class="col-sm-2 pl-0">
-                        <div class="form-group">
+                    <div class="col-sm-2 px-0 pr-sm-3">
+                        <div class="form-group mb-3">
                             <label>テーブル名</label>
                             <input type="text" class="form-control-file form-control height-auto" name="table" style="height: 41px;">
                         </div>
                     </div>
-                    <div class="col-sm-8 pl-0">
-                        <div class="form-group">
+                    <div class="col-sm-8 px-0 pr-sm-3">
+                        <div class="form-group mb-3">
                             <label>Excelファイル</label>
                             <input type="file" class="form-control-file form-control height-auto" name="excel">
                         </div>
                     </div>
-                    <div class="col-sm-2 pl-0">
-                        <div class="form-group">
-                            <label>&nbsp;</label>
-                            <button type="submit" class="btn btn-sm btn-dark d-block"><i class="fas fa-file-import mr-1"></i>作成</button>
+                    <div class="col-sm-2 px-0 pr-sm-3">
+                        <div class="form-group mb-3">
+                            <label class="d-none d-sm-inline-block">&nbsp;</label>
+                            <button type="submit" class="btn btn-sm btn-dark d-block"><span class="icon-copy ti-import mr-1"></span>作成</button>
                         </div>
                     </div>
                 </div>
