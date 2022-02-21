@@ -14,7 +14,7 @@
     <link href="{{ asset('user/assets/img/kunijima_outdoor.jpg') }}" rel="apple-touch-icon">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/user/assets/css/home.css?{{ $now->format('YmdHis') }}">
+    <link rel="stylesheet" href="/user/assets/css/home.css?{{ (now())->format('YmdHis') }}">
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="/common/plugins/fontawesome/css/all.css" >

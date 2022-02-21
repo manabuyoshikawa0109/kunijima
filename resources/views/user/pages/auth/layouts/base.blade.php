@@ -19,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="/common/plugins/deskapp/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="/common/plugins/deskapp/src/plugins/datatables/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="/common/plugins/deskapp/vendors/styles/style.css">
-    <link rel="stylesheet" type="text/css" href="/common/assets/css/custom.css?{{ $now->format('YmdHis') }}">
+    <link rel="stylesheet" type="text/css" href="/common/assets/css/custom.css?{{ (now())->format('YmdHis') }}">
 
     @stack('links')
 

@@ -32,6 +32,5 @@ class VariableServiceProvider extends ServiceProvider
         View::composer('*', function ($view)  {
             $view->with('user', Auth::guard('user')->user());
         });
-        View::share('now', Carbon::now());
     }
 }
