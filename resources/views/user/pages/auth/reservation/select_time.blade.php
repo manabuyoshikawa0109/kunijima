@@ -1,27 +1,23 @@
 @push('links')
 <link rel="stylesheet" type="text/css" href="/common/plugins/fullcalendar/main.min.css">
-<link href="https://unpkg.com/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/common/assets/css/fullcalendar.css?{{ (now())->format('Ymdhis') }}">
 @endpush
 
 @extends('user.pages.auth.layouts.app')
 
 @section('content')
 <div class="main-container">
-	<div class="pd-ltr-20">
+	<div class="p-sm-3 p-1">
 
 		@include('user.pages.auth.reservation.common.steps')
 
-		<div class="card-box pd-20 mb-30">
+		<div class="card-box p-sm-4 px-2 py-3 mb-4">
 			<form action="{{ $page->confirmUrl() }}" method="post">
 				@csrf
-				<div class="d-flex mb-2">
-					<input type="text" class="temp_reservation" name="temp_reservation" value="" readOnly>
-					<button type="submit" class="btn btn-sm btn-primary ml-2 white-space-nowrap">確認画面へ</button>
+				<div class="calendar-wrap">
+					<div id="calendar"></div>
 				</div>
 			</form>
-			<div class="calendar-wrap">
-				<div id="calendar"></div>
-			</div>
 		</div>
 	</div>
 </div>
@@ -35,21 +31,13 @@
 @endsection
 
 @push('scripts')
-<script src="https://unpkg.com/@yaireo/tagify"></script>
-<script src="https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
 <script src="/common/plugins/fullcalendar/main.min.js"></script>
 <script type="text/javascript">
-
 function zeroPadding(number){
 	return ('0' + number).slice(-2);
 }
 
 $(function(){
-	var input = document.querySelector('.temp_reservation');
-	var tagify = new Tagify(input, {
-		placeholder: '選択したコートと時間帯が表示されます（複数選択可）',
-		originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(','), // サーバーサイドに送信する値のフォーマット
-	});
 	var tempReservation = {};
 	var index = 0;
 
@@ -60,10 +48,11 @@ $(function(){
 		locale: 'ja',
 		initialDate: '{{ $page->selectedDate }}',
 		height: 'auto', // カレンダーの縦スクロールバーを表示させない
-		resourceAreaWidth: "16%", // resources表示幅（FullCalendar表示に対しての割合）
-		resourceGroupField: 'facility', // resourcesのどのプロパティでグループ化するか
+		resourceAreaWidth: "14%", // resources表示幅（FullCalendar表示に対しての割合）
+		// resourceGroupField: 'facility', // resourcesのどのプロパティでグループ化するか
 		slotMinTime: '08:00:00',
 		slotMaxTime: '22:00:00',
+		slotDuration: '01:00:00', // 時間幅
 		selectable: true, // クリック/ドラッグ&ドロップで時間選択可能にするか
 		unselectAuto: false, // どこかクリックされたら選択をクリアにするか
 		// 違う日付に移動した際に、resourcesを再読み込みするか
@@ -75,15 +64,15 @@ $(function(){
 					$('#courtMapModal').modal('show');
 				}
 			},
-			instructionsModalShowButton: {
-				text: '操作方法',
-				click: function() {
-					$('#instructionsModal').modal('show');
-				}
-			}
+			// instructionsModalShowButton: {
+			// 	text: '操作方法',
+			// 	click: function() {
+			// 		$('#instructionsModal').modal('show');
+			// 	}
+			// }
 		},
 		headerToolbar: {
-			start: 'today,courtMapModalShowButton,instructionsModalShowButton', // カンマ区切り・・・ボタン隣接、スペース区切り・・・ボタン間にスペース
+			start: 'today', // カンマ区切り・・・ボタン隣接、スペース区切り・・・ボタン間にスペース
 			center: 'title',
 			end: 'prev,next'
 		},
@@ -98,7 +87,7 @@ $(function(){
 		resourceAreaColumns: [
 			{
 				field: 'title',
-				headerContent: '施設'
+				headerContent: 'くにじまテニスコート'
 			},
 		],
 		// TODO: resourcesの順番をid順にしたい
@@ -169,7 +158,6 @@ $(function(){
 				end :  end,
 			};
 			var text = courtName + '：' + startDate + ' ' + startHour + ':' + startMinutes + ' 〜 ' + endDate + ' ' + endHour + ':' + endMinutes;
-			tagify.addTags([text]);
 			index++;
 		},
 	});

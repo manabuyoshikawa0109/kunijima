@@ -1,5 +1,6 @@
 @push('links')
 <link rel="stylesheet" type="text/css" href="/common/plugins/fullcalendar/main.min.css">
+<link rel="stylesheet" type="text/css" href="/common/assets/css/fullcalendar.css?{{ (now())->format('Ymdhis') }}">
 @endpush
 
 @extends('user.pages.auth.layouts.app')

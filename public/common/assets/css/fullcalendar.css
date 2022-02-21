@@ -1,0 +1,42 @@
+.fc-license-message{
+    display: none;
+}
+
+/*
+スマホ時
+*/
+@media screen and (max-width: 767px) {
+    /*
+    resource欄の左右のpaddingを削除
+    */
+    .fc-datagrid-cell-cushion, .fc th.fc-datagrid-cell {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    /*
+    resource欄の文字サイズ
+    */
+    .fc-datagrid-cell-cushion{
+        font-size: 11px !important;
+    }
+    /*
+    タイトルの日付の文字サイズ
+    */
+    .fc .fc-toolbar-title {
+        font-size: 1.55em;
+    }
+}
+
+/*
+resource欄の文字を折り返す
+*/
+.fc-datagrid-cell-cushion{
+    white-space: normal !important;
+}
+
+/*
+resource欄の文字を左右中央揃え
+*/
+.fc-datagrid-cell-cushion{
+    text-align: center;
+}
