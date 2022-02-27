@@ -1,6 +1,31 @@
 @push('links')
 <link rel="stylesheet" type="text/css" href="/common/plugins/fullcalendar/main.min.css">
 <link rel="stylesheet" type="text/css" href="/common/assets/css/fullcalendar.css?{{ (now())->format('Ymdhis') }}">
+<style type="text/css">
+.table-responsive td{
+	padding: 8px 14px;
+}
+@media screen and (max-width: 767px) {
+	.table-responsive td{
+		padding: 5px 8px;
+	}
+}
+.table-responsive th{
+	background: rgba(208,208,208,.3);
+}
+.table-responsive td:first-child, .table-responsive th:first-child {
+	border-left: 1px solid #dee2e6 !important;
+}
+.table-responsive td:last-child, .table-responsive th:last-child {
+	border-right: 1px solid #dee2e6 !important;
+}
+.table-responsive tbody tr{
+	border-bottom: 1px solid #dee2e6 !important;
+}
+.table-responsive td:first-child, .table-responsive td:nth-child(2), .table-responsive td:last-child{
+	width: 1px;
+}
+</style>
 @endpush
 
 @extends('user.pages.auth.layouts.app')
@@ -11,13 +36,55 @@
 
 		@include('user.pages.auth.reservation.common.steps')
 
-		<div class="card-box p-sm-4 px-2 py-3 mb-4">
-			<form action="{{ $page->confirmUrl() }}" method="post">
-				@csrf
-				<div class="calendar-wrap">
-					<div id="calendar"></div>
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link active" href="#select-time-calendar" data-toggle="tab">カレンダー</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#reservation" data-toggle="tab">予約内容</a>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<div id="select-time-calendar" class="tab-pane active">
+				<div class="card-box p-sm-4 px-2 py-3 mb-4" style="border-top-left-radius: 0 !important;">
+					<div class="calendar-wrap">
+						<div id="calendar"></div>
+					</div>
 				</div>
-			</form>
+			</div>
+			<div id="reservation" class="tab-pane">
+				<div class="card-box p-sm-4 px-2 py-3 mb-4" style="border-top-left-radius: 0 !important;">
+					<form action="{{ $page->confirmUrl() }}" method="post">
+						@csrf
+						<div class="table-responsive">
+							<table class="table table-sm">
+								<thead>
+									<tr>
+										<th colspan="4">2022年</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>2月22日(金)</td>
+										<td>10:00 〜 11:00</td>
+										<td class="text-right">オムニコート1</td>
+										<td><i class="fas fa-times-circle"></i></td>
+									</tr>
+									<tr>
+										<td>2月22日(金)</td>
+										<td>10:00 〜 11:00</td>
+										<td class="text-right">オムニコート1</td>
+										<td><i class="fas fa-times-circle"></i></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="mt-1">
+							<button type="submit" class="btn btn-sm btn-dark"><i class="fas fa-check-circle mr-1"></i>予約内容を確認する</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -38,8 +105,10 @@ function zeroPadding(number){
 }
 
 $(function(){
-	var tempReservation = {};
+	var reservations = {};
+	var inputs = {};
 	var index = 0;
+	var count = 1;
 
 	// バージョン5.5.1 プロパティの書き方が昔と異なるので注意
 	var calendarEl = document.getElementById('calendar');
@@ -116,49 +185,86 @@ $(function(){
 		// クリック/ドラッグ&ドロップで選択した日付の開始時間と終了時間を取得
 		select: function(selectionInfo){
 
-			// TODO: 1時間以上の利用か確認する
-			var courtName = selectionInfo.resource.title;
-			var start = selectionInfo.startStr;
-			var end = selectionInfo.endStr;
+			var courtId = selectionInfo.resource.id;
 
-			start = new Date(start);
-			var startYear = start.getFullYear();
-			var startMonth = start.getMonth() + 1;
-			var startDay = start.getDate();
-			var startHour = start.getHours();
-			var startMinutes = zeroPadding(start.getMinutes());
+			// クリック1回目：開始時間の値のみ取得
+			if(count === 1){
+				var start = selectionInfo.startStr;
+				// inputの値
+				start = moment(start).format('YYYY-MM-DD HH:mm');
 
-			end = new Date(end);
-			var endYear = end.getFullYear();
-			var endMonth = end.getMonth() + 1;
-			var endDay = end.getDate();
-			var endHour = end.getHours();
-			var endMinutes = zeroPadding(end.getMinutes());
+				// バリデーション用の値
+				var startDate = moment(start).format('YYYY-MM-DD');
 
-			var startDate = startYear + '/' + startMonth + '/' + startDay;
-			var endDate = endYear + '/' + endMonth + '/' + endDay;
-
-			// TODO: 1時間単位での予約、9時半などから予約されないようチェック
-
-			if(startDate !== endDate) {
-				alert('予約開始日と終了日を同一日付にしてください');
-				return false;
+				// 表示用の値
+				var courtName = selectionInfo.resource.title;
+				var year = moment(start).format('YYYY年');
+				var monthDay = moment(start).format('M月D日');
+				var startTime = moment(start).format('h:mm');
+				// 2回目のクリックに備えて一時退避
+				inputs = {
+					court_id : courtId,
+					court_name : courtName,
+					start : start,
+					startDate : startDate,
+					year : year,
+					monthDay : monthDay,
+					startTime : startTime,
+				};
+				count++;
+				return;
 			}
 
-			for(var i in tempReservation) {
-				if(courtName === tempReservation[i].court_name && tempReservation[i].start <= start && end <= tempReservation[i].end){
-					alert('予約希望の時間帯が重複しています');
+			if(count === 2){
+				// 開始時間と終了時間のコートが同じか確認
+				if(inputs.court_id !== courtId){
+					alert('同じコートを選択してください。')
+					inputs = {};
+					count = 1;
+					return;
+				}
+				var end = selectionInfo.endStr;
+
+				// inputの値
+				end = moment(end).format('YYYY-MM-DD HH:mm');
+
+				// バリデーション用の値
+				var endDate = moment(end).format('YYYY-MM-DD');
+
+				if(inputs.startDate !== endDate) {
+					alert('同じ日付を選択してしてください');
+					inputs = {};
+					count = 1;
 					return false;
 				}
+
+				// 表示用の値
+				var endTime = moment(end).format('h:mm');
+
+				// 入力値
+				var test1 = '<input type="hidden" name="court_id" value="' + courtId + '">';
+				var test2 = '<input type="hidden" name="start" value="' + inputs.start + '">';
+				var test3 = '<input type="hidden" name="end" value="' + end + '">';
+				console.log(test1);
+				console.log(test2);
+				console.log(test3);
+				var time = inputs.startTime + ' 〜 ' + endTime;
+				console.log(time);
+				inputs = {};
+				count = 1;
 			}
 
-			tempReservation[index] = {
-				court_name : courtName,
-				start : start,
-				end :  end,
-			};
-			var text = courtName + '：' + startDate + ' ' + startHour + ':' + startMinutes + ' 〜 ' + endDate + ' ' + endHour + ':' + endMinutes;
-			index++;
+			// for(var i in reservations) {
+			// 	if(courtId === reservations[i].court_id && reservations[i].start <= start && end <= reservations[i].end){
+			// 		alert('予約希望の時間帯が重複しています');
+			// 		return false;
+			// 	}
+			// }
+			//
+			// reservations[index] = {
+			//
+			// };
+			// index++;
 		},
 	});
 	calendar.render();

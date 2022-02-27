@@ -84,3 +84,11 @@
         margin-bottom: 15px !important;
     }
 }
+
+/*
+bootstrap4ではtable-responsiveのth、tdの文字を自動で改行してしまう為、改行しないよう調整
+参考：https://shortycolossus.honker.biz/css-scss-103.html
+*/
+.table-responsive th, .table-responsive td{
+    white-space: nowrap;
+}
