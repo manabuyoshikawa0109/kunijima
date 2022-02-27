@@ -36,53 +36,54 @@
 
 		@include('user.pages.auth.reservation.common.steps')
 
-		<ul class="nav nav-tabs">
-			<li class="nav-item">
-				<a class="nav-link active" href="#select-time-calendar" data-toggle="tab">カレンダー</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#reservation" data-toggle="tab">予約内容</a>
-			</li>
-		</ul>
-		<div class="tab-content">
-			<div id="select-time-calendar" class="tab-pane active">
-				<div class="card-box p-sm-4 px-2 py-3 mb-4" style="border-top-left-radius: 0 !important;">
-					<div class="calendar-wrap">
-						<div id="calendar"></div>
+		<div class="card-box p-sm-4 px-2 py-3 mb-4" style="border-top-left-radius: 0 !important;">
+			<div class="tab">
+				<ul class="nav nav-tabs customtab mb-3" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" data-toggle="tab" href="#select-time-calendar" role="tab" aria-selected="true"><span class="micon dw dw-calendar-1 mr-1"></span>カレンダー</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#reservation" role="tab" aria-selected="false"><i class="fas fa-check-circle mr-1"></i>予約内容</a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+					<div class="tab-pane fade show active" id="select-time-calendar" role="tabpanel">
+						<div class="calendar-wrap">
+							<div id="calendar"></div>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div id="reservation" class="tab-pane">
-				<div class="card-box p-sm-4 px-2 py-3 mb-4" style="border-top-left-radius: 0 !important;">
-					<form action="{{ $page->confirmUrl() }}" method="post">
-						@csrf
-						<div class="table-responsive">
-							<table class="table table-sm">
-								<thead>
-									<tr>
-										<th colspan="4">2022年</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>2月22日(金)</td>
-										<td>10:00 〜 11:00</td>
-										<td class="text-right">オムニコート1</td>
-										<td><i class="fas fa-times-circle"></i></td>
-									</tr>
-									<tr>
-										<td>2月22日(金)</td>
-										<td>10:00 〜 11:00</td>
-										<td class="text-right">オムニコート1</td>
-										<td><i class="fas fa-times-circle"></i></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div class="mt-1">
-							<button type="submit" class="btn btn-sm btn-dark"><i class="fas fa-check-circle mr-1"></i>予約内容を確認する</button>
-						</div>
-					</form>
+					<div class="tab-pane fade" id="reservation" role="tabpanel">
+						<form action="{{ $page->confirmUrl() }}" method="post">
+							@csrf
+							<div class="table-responsive">
+								<table class="table table-sm">
+									<thead>
+										<tr>
+											<th colspan="4">2022年</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>2月22日(金)</td>
+											<td>10:00 〜 11:00</td>
+											<td class="text-right">オムニコート1</td>
+											<td><i class="fas fa-times-circle"></i></td>
+										</tr>
+										<tr>
+											<td>2月22日(金)</td>
+											<td>10:00 〜 11:00</td>
+											<td class="text-right">オムニコート1</td>
+											<td><i class="fas fa-times-circle"></i></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="mt-1">
+								<button type="submit" class="btn btn-sm btn-dark"><i class="fas fa-check-circle mr-1"></i>予約内容を確認する</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
