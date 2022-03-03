@@ -12,6 +12,10 @@
 	background: #e1e1f5;
 }
 
+.table-responsive th:first-child, .table-responsive td:first-child {
+    border-right: double #dee2e6;
+}
+
 .custom-control-label::before, .custom-control-label::after {
     top: 5px !important;
     left: -27px !important;
