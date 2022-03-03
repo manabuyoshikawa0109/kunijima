@@ -57,6 +57,39 @@
 						<form action="{{ $page->confirmUrl() }}" method="post">
 							@csrf
 							<div class="table-responsive">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											@for ($hour = 7; $hour <= 21; $hour++)
+											@if($hour === 7)
+												<th>くにじまテニス</th>
+											@else
+												<th>{{ $hour }}時</th>
+											@endif
+											@endfor
+										</tr>
+									</thead>
+									<tbody>
+										@for ($court = 1; $court <= 12; $court++)
+										<tr>
+											@for ($hour = 7; $hour <= 21; $hour++)
+											@if($hour === 7)
+												<td>オムニコート{{ $court }}</td>
+											@else
+												<td>
+													<div class="custom-control custom-checkbox mb-5">
+														<input type="checkbox" class="custom-control-input" id="customCheck-{{ $court }}-{{ $hour }}">
+														<label class="custom-control-label" for="customCheck-{{ $court }}-{{ $hour }}"></label>
+													</div>
+												</td>
+											@endif
+											@endfor
+										</tr>
+										@endfor
+									</tbody>
+								</table>
+							</div>
+							<div class="table-responsive">
 								<table class="table table-sm">
 									<thead>
 										<tr>
