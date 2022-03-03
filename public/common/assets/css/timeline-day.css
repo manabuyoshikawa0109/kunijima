@@ -1,0 +1,76 @@
+.table-responsive td {
+	padding: 8px 14px;
+}
+
+@media screen and (max-width: 767px) {
+	.table-responsive td {
+		padding: 5px 8px;
+	}
+}
+
+.table-responsive th {
+	background: #e1e1f5;
+}
+
+.custom-control-label::before, .custom-control-label::after {
+    top: 5px !important;
+    left: -27px !important;
+}
+
+.table-responsive th:first-child {
+	line-height: 1;
+}
+
+.ti-close {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toolbar-title {
+    font-size: 1.75em;
+    font-weight: 700;
+    color: #202342;
+}
+
+@media screen and (max-width: 767px) {
+    .toolbar-title {
+        font-size: 1.15em;
+    }
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+}
+
+.button-group button, .button-group button:hover {
+    background-color: #2C3E50;
+    color: white;
+    padding: 0.4em 0.65em;
+}
+
+.button-group > button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.button-group > button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/*
+カレンダー上のボタンと文字サイズの調整
+*/
+@media screen and (max-width: 767px) {
+    .button-group button {
+        padding: 0.3em 0.55em !important;
+        font-size: 0.8rem !important;
+    }
+}
