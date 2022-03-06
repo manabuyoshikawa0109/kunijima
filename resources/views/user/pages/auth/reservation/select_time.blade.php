@@ -66,7 +66,7 @@
 								@for ($hour = 8; $hour <= 21; $hour++)
 								<td class="text-center">
 									@if($court === 1)
-									<span class="icon-copy ti-close text-danger"></span>
+									<span class="icon-copy ti-close text-danger align-middle"></span>
 									@else
 									<div class="custom-control custom-checkbox mb-5">
 										<input type="checkbox" class="custom-control-input" id="reservation-check-{{ $court }}-{{ $hour }}" data-court="{{ $court }}" data-hour="{{ $hour }}">
