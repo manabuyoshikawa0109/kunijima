@@ -9,7 +9,6 @@ class TopController extends Controller
 {
     public function show(Request $request)
     {
-        info('これはテストです');
         return view('user.pages.auth.top.show');
     }
 }
